@@ -52,6 +52,7 @@ def b():#为什么这个函数名这么短呢。。。因为我实在想不出�
         print("总支出: " + str(data["ex"]))
         print("总收入: " + str(data["re"]))
         print("余额: " + str(data["balance"]))
+        print("输入q推出程序")
 
 def f_output(list):
     n_list = []
@@ -106,12 +107,16 @@ while True:
                 continue
             elif "Balance" in s:
                 b()
+            elif s is "q":
+                break
             else:
                 print("我想你听不懂人话，准备退出")
                 break
         out = f_output(search(date, reason))
     except ValueError:
         print("你的输入无效，输入help以得到帮助")
+    except EOFError:
+        print("你中止了程序")
     if len(out) > 0:
         for i in out:
             print(i)
